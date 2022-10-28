@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import '../styles/App.css';
+var timer=null;
 const App = () => {
   const [time,setTime]=useState("")
 
-  useEffect(()=>{
-    setTimeout(()=>{
+  
+   timer= setInterval(()=>{
       var obj=new Date().toLocaleString();
       setTime(obj);
+      clearInterval(timer);
     },1000)
+
+    
+  
  
-  },[time])
+
+  
   return (
     <div id="main">
       <div className="date-time">
